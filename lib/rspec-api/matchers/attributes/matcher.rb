@@ -32,7 +32,13 @@ module RSpecApi
         end
 
         def has_attribute?(items, name, options)
-          return false unless Array.wrap(items).all?{|item| item.key? name}
+          if name == '.*'.to_sym
+            return Array.wrap(items).all? do |item|
+              item.respond_to?(:keys) ? item.keys.all? {|key| key.to_s =~ /.*/} : true
+            end
+          else
+            return false unless Array.wrap(items).all?{|item| item.key? name}
+          end
           values = Array.wrap(items).map{|item| item[name]}
           attr_types = Array.wrap(options.fetch :type, :any)
           attr_value = options.fetch :value, :any
