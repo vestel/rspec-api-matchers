@@ -18,6 +18,11 @@ module RSpecApi
         def description
           "be #{status_code}"
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          "not be #{status_code}".rstrip
+        end
 
       private
 

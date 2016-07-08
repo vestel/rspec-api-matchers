@@ -17,11 +17,11 @@ module RSpecApi
           %Q(be a valid response)
         end
 
-        def failure_message_for_should
+        def failure_message
           "expected #{match} to #{description}, but got #{actual}"
         end
 
-        def failure_message_for_should_not
+        def failure_message_when_negated
           "expected #{match} not to #{description}, but got #{actual}"
         end
 

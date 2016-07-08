@@ -23,6 +23,15 @@ module RSpecApi
             %Q(have attributes)
           end
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          if attributes.any?
+            %Q(do not have attributes #{attributes})
+          else
+            %Q(do not have attributes)
+          end
+        end
 
       private
 

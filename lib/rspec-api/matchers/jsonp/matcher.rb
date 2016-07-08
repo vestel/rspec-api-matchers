@@ -17,6 +17,11 @@ module RSpecApi
         def description
           %Q(be wrapped in a JSONP callback #{callback}).rstrip
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          "not be wrapped in a JSONP callback #{callback}".rstrip
+        end
       end
     end
   end

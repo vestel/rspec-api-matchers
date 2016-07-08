@@ -14,6 +14,11 @@ module RSpecApi
         def description
           %Q(be valid JSON)
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          %Q(be non valid JSON)
+        end
 
       private
 

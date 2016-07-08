@@ -22,6 +22,11 @@ module RSpecApi
             %Q(be sorted)
           end
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          "not be sorted".rstrip
+        end
 
       private
 

@@ -12,6 +12,11 @@ module RSpecApi
         def description
           %Q{be a non-empty Hash}
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          %Q{be an Hash}
+        end
 
       private
 

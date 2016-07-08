@@ -17,6 +17,11 @@ module RSpecApi
         def description
           %Q{include 'Content-Type': '#{content_type}'}
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          %Q{not include 'Content-Type': '#{content_type}'}
+        end
       end
     end
   end

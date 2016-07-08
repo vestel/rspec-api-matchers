@@ -13,6 +13,11 @@ module RSpecApi
         def description
           %Q(be a collection)
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          %Q(not to be a collection)
+        end
       end
     end
   end

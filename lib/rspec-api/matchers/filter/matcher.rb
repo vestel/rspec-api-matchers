@@ -23,7 +23,11 @@ module RSpecApi
             %Q(be filtered)
           end
         end
+        alias_method :failure_message, :description
 
+        def failure_message_when_negated
+          %Q{not include 'Content-Type': '#{content_type}'}
+        end
       private
 
         def all_objects_have_field?

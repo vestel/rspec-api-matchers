@@ -12,6 +12,11 @@ module RSpecApi
         def description
           %Q{include a 'Link' to the previous page}
         end
+        alias_method :failure_message, :description
+
+        def failure_message_when_negated
+          %Q{not include a 'Link'}
+        end
       end
     end
   end
